@@ -11,7 +11,6 @@ export default function OptionMenu({ options }) {
     const [countFim, setCountFim] = React.useState()
     const [botao, setBotao] = React.useState([])
 
-    const [data, setData] = React.useState([])
     const { request } = useFetch();
     
     const global = React.useContext(GlobalContext)
@@ -29,32 +28,29 @@ export default function OptionMenu({ options }) {
             case 'Kanto':
                 setCountIn(1)
                 setCountFim(151)
-                global.setRegion(countIn)
+                console.log(countIn)
+
                 break;
             case 'Johto':
                 setCountIn(152)
                 setCountFim(100)
-                global.setRegion(countIn)
+
                 break;
             case 'Hoenn':
                 setCountIn(252)
                 setCountFim(135)
-                global.setRegion(countIn)
+
                 break;
             case 'Sinnoh':
                 setCountIn(387)
                 setCountFim(106)
-                global.setRegion(countIn)
+
                 break;
         }
     }
     function handleClick({ target }) {
         regions(target.innerText);
     }
-
-    React.useEffect(() => {  
-        global.setData([...global.data, data])
-    }, [data])
 
     React.useEffect(() => {
         
@@ -76,12 +72,13 @@ export default function OptionMenu({ options }) {
                         })
                     }
                     if (i === countFim - 1) {
-                        setData(data)
+                        global.setData([...global.data, data])
                     }
                 }
                 fetchData();
             }
         }
+        global.setRegion(countIn)
         inserirValorBotao(countIn)
         }, [countIn])
 
