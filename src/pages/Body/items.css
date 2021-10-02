@@ -1,0 +1,22 @@
+.pokemons{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 1rem 5rem;
+}
+/*120/120*/
+.pokemon img{
+    background-color: #fff;
+    height: 120px;
+    width: 120px;
+    border: 1px solid #000;
+    border-radius: 100%;
+}
+
+.item {
+    margin: 5px;
+    height: 120px;
+    width: 120px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}

@@ -1,0 +1,25 @@
+#namePage{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+#pokeball{
+    width: 4.2vw;
+    height: 5.3vw;
+    margin: 0 1rem 0 5rem ;
+}
+
+#regionPokemon{
+    color:#000;
+    font-size: 2.2rem;
+    font-weight: bold;
+
+    border: solid;
+    border-color: #000;
+    border-bottom-width: 8px;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+}
