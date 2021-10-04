@@ -71,6 +71,7 @@ export default function OptionMenu({ options }) {
                             type: json.types.map((tipo) => tipo.type.name)
                         })
                     }
+                    
                     if (i === countFim - 1) {
                         global.setData([...global.data, data])
                     }
@@ -78,6 +79,8 @@ export default function OptionMenu({ options }) {
                 fetchData();
             }
         }
+
+
         global.setRegion(countIn)
         inserirValorBotao(countIn)
         }, [countIn])

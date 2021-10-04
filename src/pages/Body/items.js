@@ -12,9 +12,9 @@ export const Items = () => {
     const global = React.useContext(GlobalContext)
     const { region, data } = global
 
-
-
-
+    data.forEach((teste) => teste.sort((a,b) => {
+        return (a.id> b.id)? 1: ((b.id> a.id) ? -1 : 0)
+    }))
 
     React.useEffect(() => {
 
