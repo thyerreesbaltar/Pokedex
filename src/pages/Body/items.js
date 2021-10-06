@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { GlobalContext } from "../GlobalContext";
-
+import useFetch from "../../Hooks/useFetch"
 import './items.css'
 import { Modal } from './modal';
 
@@ -10,11 +10,13 @@ export const Items = () => {
     const [showModal, setShowModal] = React.useState(false)
 
     const global = React.useContext(GlobalContext)
-    const { region, data } = global
+    const {region, data } = global
+
 
     data.forEach((teste) => teste.sort((a,b) => {
         return (a.id> b.id)? 1: ((b.id> a.id) ? -1 : 0)
     }))
+
 
     React.useEffect(() => {
 

@@ -2,10 +2,11 @@ import React from 'react'
 import './modal.css'
 import useFetch from '../../Hooks/useFetch';
 import { Types } from './types';
+import pokeball from '../../assets/pokeball.svg'
 
 export const Modal = ({ id, nome, type, img, showModal, setShowModal }) => {
   const [description, setDescription] = React.useState()
-  const { request } = useFetch()
+  const { loading, request } = useFetch()
 
   function onclose() {
     setShowModal(!showModal)
@@ -21,7 +22,16 @@ export const Modal = ({ id, nome, type, img, showModal, setShowModal }) => {
   {
     description && console.log(description)
   }
+  console.log(loading)
   /*no texto tem uma seta para cima por causa do \f */
+  if(loading) return (
+    <div className="modal">
+      <div className="modalContainer loading">
+        <img src={pokeball} alt="Carregando" />
+        <h1>Carregando...</h1>
+      </div>
+    </div>
+  )
 
   return (
     <div className="modal">
