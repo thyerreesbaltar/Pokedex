@@ -66,7 +66,7 @@ export default function OptionMenu({ options }) {
                         json && data.push({
                             region: countIn,
                             id: json.id,
-                            nome: json.pokemon.name,
+                            nome: json.pokemon.name.charAt(0).toUpperCase() + json.pokemon.name.substr(1),
                             img: json.sprites.front_default,
                             type: json.types.map((tipo) => tipo.type.name)
                         })

@@ -14,7 +14,7 @@ export const Modal = ({ id, nome, type, img, showModal, setShowModal }) => {
   React.useEffect(() => {
     async function fetchData() {
       const { json } = await request(`https://pokeapi.co/api/v2/pokemon-species/${id}/`)
-      { json && setDescription(json.flavor_text_entries[0].flavor_text) }
+      { json && setDescription(json.flavor_text_entries[0].flavor_text.replace(/(\f)/g, ' '))}
     }
     fetchData();
   }, [])
@@ -40,11 +40,13 @@ export const Modal = ({ id, nome, type, img, showModal, setShowModal }) => {
           <img className='pokemonImg' src={img} alt={nome} />
 
           <Types type={type} />
-          
+          {/* <div className='description' dangerouslySetInnerHTML={{ __html:teste}}/> */}
+
           <p className='description'>
             {description}
 
-          </p>
+
+          </p> 
 
         </div>
       </div>
