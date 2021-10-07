@@ -15,7 +15,10 @@ export const Modal = ({ id, nome, type, img, showModal, setShowModal }) => {
   React.useEffect(() => {
     async function fetchData() {
       const { json } = await request(`https://pokeapi.co/api/v2/pokemon-species/${id}/`)
-      { json && setDescription(json.flavor_text_entries[0].flavor_text.replace(/(\f)/g, ' '))}
+
+      const desc = json.flavor_text_entries.find(descrip => descrip.language.name === 'en')
+
+      { json && setDescription(desc.flavor_text.replace(/(\f)/g, ' '))}
     }
     fetchData();
   }, [])

@@ -59,7 +59,7 @@ export default function OptionMenu({ options }) {
 
             for (let i = 0; i < countFim; i++) {
                 async function fetchData() {
-
+                    
                     const { json } = await request(`https://pokeapi.co/api/v2/pokemon-form/${(countIn + i)}/`)
                     
                     {
@@ -75,7 +75,7 @@ export default function OptionMenu({ options }) {
                     if (i === countFim - 1) {
                         global.setData([...global.data, data])
                     }
-
+                    
                 }
                 fetchData();
             }
